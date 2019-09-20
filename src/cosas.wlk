@@ -84,7 +84,7 @@ object packDeRegalo {
 		return pack.add(cosa)
 	}
 	method precio() {
-		return pack.sum({cosa => cosa.precio()})/0.2
+		return pack.sum({cosa => cosa.precio()})*0.8
 	}
 	method esComida() {
 		return pack.all({cosa => cosa.esComida()})
