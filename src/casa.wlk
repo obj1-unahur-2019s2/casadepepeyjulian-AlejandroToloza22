@@ -33,4 +33,19 @@ object casaDePepeYJulian {
 	method faltaComida() {
 		return cosas.count({cosa => cosa.esComida()})<2
 	}
+	method gastoEnComida() {
+		return cosas.filter({cosa=>cosa.esComida()}).sum({cosa=>cosa.precio()})
+	}
+	method hayElectrodomesticosBaratos() {
+		return cosas.any({cosa=>cosa.precio()<3000})
+	}
+	method preciosDeElectrodomesticos() {
+		return cosas.filter({cosa=>cosa.esElectrodomestico()}).map({cosa=>cosa.precio()})
+	}
+	method nivelEnAumento() {
+		return cosas.last().precio()/2>=cosas.first().precio()
+	}
+	method primeraComidaComprada() {
+		return cosas.first().esComida()
+	}
 }

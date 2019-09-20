@@ -65,7 +65,31 @@ object compu {
 }
 
 object packDeComida {
+	var property aderezo = kgDeCebollas
+	var property plato = milanesasRebozadas
 	method precio() {
-		
+		return aderezo.precio() + plato.precio()
+	}
+	method esComida() {
+		return true
+	}
+	method esElectrodomestico() {
+		return false
+	}
+}
+
+object packDeRegalo {
+	var pack = []
+	method agregarAlPack(cosa) {
+		return pack.add(cosa)
+	}
+	method precio() {
+		return pack.sum({cosa => cosa.precio()})/0.2
+	}
+	method esComida() {
+		return pack.all({cosa => cosa.esComida()})
+	}
+	method esElectrodomestico() {
+		return pack.any({cosa => cosa.esElectrodomestico()})
 	}
 }
